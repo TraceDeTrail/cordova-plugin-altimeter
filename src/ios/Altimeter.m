@@ -37,10 +37,10 @@
             else
             {
                 NSDictionary* altitudeData = @{
-                    @"relativeAltitude": [CMAltimeter isRelativeAltitudeAvailable] && altitudeData.relativeAltitude ? altimeterData.relativeAltitude : [NS Number numberWithInt:0],
-                    @"pressure": [CMAltimeter isRelativeAltitudeAvailable] && altitudeData.pressure ? altimeterData.pressure : [NS Number numberWithInt:0]
+                    @"relativeAltitude": [CMAltimeter isRelativeAltitudeAvailable] && altitudeData.relativeAltitude ? altimeterData.relativeAltitude : [NSNumber numberWithInt:0],
+                    @"pressure": [CMAltimeter isRelativeAltitudeAvailable] && altitudeData.pressure ? altimeterData.pressure : [NSNumber numberWithInt:0]
                 };
-                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:altitudefData];
+                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:altitudeData];
                 [pluginResult setKeepCallbackAsBool:true];
             }
 
