@@ -7,15 +7,15 @@ var Altimeter = function () {
 };
 
 Altimeter.prototype.isRelativeAltitudeAvailable = function (onSuccess, onError) {
-    exec(onSuccess, onError, "Altimeter", "isStepCountingAvailable", []);
+    exec(onSuccess, onError, "Altimeter", "isRelativeAltitudeAvailable", []);
 };
 
 Altimeter.prototype.startRelativeAltitudeUpdates = function (onSuccess, onError) {
-    exec(onSuccess, onError, "Altimeter", "startAltimeterUpdates", []);
+    exec(onSuccess, onError, "Altimeter", "startRelativeAltitudeUpdates", []);
 };
 
 Altimeter.prototype.stopRelativeAltitudeUpdates = function (onSuccess, onError) {
-    exec(onSuccess, onError, "Altimeter", "stopAltimeterUpdates", []);
+    exec(onSuccess, onError, "Altimeter", "stopRelativeAltitudeUpdates", []);
 };
 
 Altimeter.prototype.queryData = function (onSuccess, onError, options) {
