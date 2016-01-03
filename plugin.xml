@@ -9,7 +9,7 @@
         <engine name="cordova" version="&gt;=3.0.0" />
     </engines>
     <js-module name="Altimeter" src="www/Altimeter.js">
-        <clobbers target="cordova.plugins.Altimeter" />
+        <clobbers target="altimeter" />
     </js-module>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
