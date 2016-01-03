@@ -28,7 +28,7 @@
 {
     __block CDVPluginResult* pluginResult = nil;
 
-    [self.pedometer startRelativeAltitudeUpdatesToQueue:[NSOperationQueue queue] withHandler:^(CMAltitudeData *altitudeData, NSError *error) {
+    [self.altimeter startRelativeAltitudeUpdatesToQueue:[NSOperationQueue queue] withHandler:^(CMAltitudeData *altitudeData, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error)
             {
@@ -40,7 +40,7 @@
                     @"relativeAltitude": [CMAltimeter isRelativeAltitudeAvailable] && altitudeData.relativeAltitude ? altimeterData.relativeAltitude : [NS Number numberWithInt:0],
                     @"pressure": [CMAltimeter isRelativeAltitudeAvailable] && altitudeData.pressure ? altimeterData.pressure : [NS Number numberWithInt:0]
                 };
-                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:altitudeData];
+                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:altitudefData];
                 [pluginResult setKeepCallbackAsBool:true];
             }
 
