@@ -1,0 +1,38 @@
+{
+  "name": "Altimeter",
+  "version": "0.1.0",
+  "description": "Cordova Plugin for the Altimeter to gather altitude related data.",
+  "cordova": {
+    "id": "cordova-plugin-altimeter",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jameslegue/cordova-plugin-altimeter.git"
+  },
+  "keywords": [
+    "cordova",
+    "core motion",
+    "barometer",
+    "altimeter",
+    "altitude",
+    "pressure",
+    "weather",
+    "sensor",
+    "ecosystem:cordova"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "James Legue",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jameslegue/cordova-plugin-altimeter/issues"
+  },
+  "homepage": "https://github.com/jameslegue/cordova-plugin-altimeter#readme"
+}
