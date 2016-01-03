@@ -7,17 +7,14 @@ var Altimeter = function () {
 };
 
 Altimeter.prototype.isAltimeterAvailable = function (onSuccess, onError) {
-	console.log('plugin: isAltimeterAvailable');
     exec(onSuccess, onError, "Altimeter", "isAltimeterAvailable", []);
 };
 
 Altimeter.prototype.startAltimeterUpdates = function (onSuccess, onError) {
-	console.log('plugin: startAltimeterUpdates');
     exec(onSuccess, onError, "Altimeter", "startAltimeterUpdates", []);
 };
 
 Altimeter.prototype.stopAltimeterUpdates = function (onSuccess, onError) {
-	console.log('plugin: stopAltimeterUpdates');
     exec(onSuccess, onError, "Altimeter", "stopAltimeterUpdates", []);
 };
 
