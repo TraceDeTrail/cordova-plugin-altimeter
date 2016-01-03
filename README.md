@@ -6,6 +6,12 @@ Cordova Plugin for the Altimeter to gather altitude and barometric pressure rela
 
 **Fetch altimeter-related altitude data, such as relative altitude and barometric pressure.**
 
+
+## Platform and device support
+
+- iOS (8+), but not supported on all hardware, so use the isAltimeterAvailable method to verify presence of an altimeter before using.
+- Android: To be implemented.
+
 ## Install
 
 #### Latest published version on npm (with Cordova CLI >= 5.0.0)
@@ -22,7 +28,7 @@ cordova plugin add https://github.com/jameslegue/cordova-plugin-altimeter.git
 
 You **do not** need to reference any JavaScript, the Cordova plugin architecture will add an altimeter object to your root automatically when you build.
 
-## Check feature support (iOS only)
+## Check feature support
 
 ### isAltimeterAvailable
 
@@ -57,11 +63,6 @@ Stops the delivery of altimeter updates to your Cordova app.
 ```js
 altimeter.stopAltimeterUpdates(successCallback, failureCallback);
 ```
-
-## Platform and device support
-
-- iOS 8+. These capabilities are not supported on all devices, even with iOS 8, so please ensure you use the *check feature support* functions.
-- [TBD] Android (when associated hardware is available). To be implemented.
 
 ## License
 
