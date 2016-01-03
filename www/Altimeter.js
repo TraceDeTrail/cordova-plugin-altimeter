@@ -6,20 +6,20 @@ var Altimeter = function () {
     this.name = "Altimeter";
 };
 
-Altimeter.prototype.isRelativeAltitudeAvailable = function (onSuccess, onError) {
-    exec(onSuccess, onError, "Altimeter", "isRelativeAltitudeAvailable", []);
+Altimeter.prototype.isAltimeterAvailable = function (onSuccess, onError) {
+    exec(onSuccess, onError, "Altimeter", "isAltimeterAvailable", []);
 };
 
-Altimeter.prototype.startRelativeAltitudeUpdates = function (onSuccess, onError) {
-    exec(onSuccess, onError, "Altimeter", "startRelativeAltitudeUpdates", []);
+Altimeter.prototype.startAltimetereUpdates = function (onSuccess, onError) {
+    exec(onSuccess, onError, "Altimeter", "startAltimeterUpdates", []);
 };
 
-Altimeter.prototype.stopRelativeAltitudeUpdates = function (onSuccess, onError) {
-    exec(onSuccess, onError, "Altimeter", "stopRelativeAltitudeUpdates", []);
+Altimeter.prototype.stopAltimeterUpdates = function (onSuccess, onError) {
+    exec(onSuccess, onError, "Altimeter", "stopAltimeterUpdates", []);
 };
 
-Altimeter.prototype.queryData = function (onSuccess, onError, options) {
-    exec(onSuccess, onError, "Altimeter", "queryData", [options]);
+Altimeter.prototype.queryAltimeterData = function (onSuccess, onError, options) {
+    exec(onSuccess, onError, "Altimeter", "queryAltimeterData", [options]);
 };
 
 module.exports = new Altimeter();

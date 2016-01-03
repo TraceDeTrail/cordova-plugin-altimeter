@@ -5,12 +5,11 @@
 
 @interface Altimeter : CDVPlugin
 
-- (void) isRelativeAltitudeAvailable:(CDVInvokedUrlCommand*)command;
+- (void) isAltimeterAvailable:(CDVInvokedUrlCommand*)command;
 
-/*
-- (void) startRelativeAltitudeUpdates:(CDVInvokedUrlCommand*)command;
-- (void) stopRelativeAltitudeUpdates:(CDVInvokedUrlCommand*)command;
+- (void) startAltimeterUpdates:(CDVInvokedUrlCommand*)command;
+- (void) stopAltimeterUpdates:(CDVInvokedUrlCommand*)command;
 
-- (void) queryData:(CDVInvokedUrlCommand*)command;
-*/
+//- (void) queryData:(CDVInvokedUrlCommand*)command;
+
 @end
