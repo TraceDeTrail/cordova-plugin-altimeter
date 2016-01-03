@@ -24,42 +24,38 @@ You **do not** need to reference any JavaScript, the Cordova plugin architecture
 
 ## Check feature support (iOS only)
 
-### isRelativeAltitudeAvailable
+### isAltimeterAvailable
 
 ```js
-altimeter.isStepCountingAvailable(successCallback, failureCallback);
+altimeter.isAltimeterAvailable(successCallback, failureCallback);
 ```
 - => `successCallback` is called with true if the feature is supported, otherwise false
 - => `failureCallback` is called if there was an error determining if the feature is supported
 
 ## Live altimeter data
 
-### startRelativeAltitudeUpdates
+### startAltimeterUpdates
 
-Starts the delivery of relative altitude updates to your Cordova app.
+Starts the delivery of altimeter updates to your Cordova app.
 
 ```js
 var successHandler = function (altimeterData) {
-    // altimeterData.startDate; -> ms since 1970
-    // altimeterData.endDate; -> ms since 1970
-    // altimeterData.numberOfSteps;
-    // altimeterData.distance;
-    // altimeterData.floorsAscended;
-    // altimeterData.floorsDescended;
+    // altimeterData.pressure; -> in kilopascals
+    // altimeterData.relativeAltitude; -> starts at 0 and then reports delta on successive updates
 };
-altimeter.startRelativeAltitudeUpdates(successHandler, onError);
+altimeter.startAltimeterUpdates(successHandler, onError);
 ```
 
 The success handler is executed when data is available and is called repeatedly from a background thread as new data arrives.
 
 When the app is suspended, the delivery of updates stops temporarily. Upon returning to foreground or background execution, the altimeter object begins updates again.
 
-### stopRelativeAltitudeUpdates
+### stopAltimeterUpdates
 
-Stops the delivery of relative altitude updates to your Cordova app.
+Stops the delivery of altimeter updates to your Cordova app.
 
 ```js
-altimeter.stopRelativeAltitudeUpdates(successCallback, failureCallback);
+altimeter.stopAltimeterUpdates(successCallback, failureCallback);
 ```
 
 ## Platform and device support
