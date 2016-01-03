@@ -1,11 +1,11 @@
 /********* Altimeter.h Cordova Plugin Header *******/
 
-#import "Foundation/Foundation.h"
-#import "Cordova/CDV.h"
+#import <Foundation/Foundation.h>
+#import <Cordova/CDV.h>
 
 @interface Altimeter : CDVPlugin
 
-- (void) iisRelativeAltitudeAvailable:(CDVInvokedUrlCommand*)command;
+- (void) isRelativeAltitudeAvailable:(CDVInvokedUrlCommand*)command;
 
 - (void) startRelativeAltitudeUpdates:(CDVInvokedUrlCommand*)command;
 - (void) stopRelativeAltitudeUpdates:(CDVInvokedUrlCommand*)command;

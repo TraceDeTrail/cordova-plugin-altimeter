@@ -1,9 +1,9 @@
 /********* Altimeter.m Cordova Plugin Implementation *******/
 
-#import "Cordova/CDV.h"
-#import "Cordova/CDVViewController.h"
-#import "CoreMotion/CoreMotion.h"
-#import "Altimeter.h"
+#import <Cordova/CDV.h>
+#import <Cordova/CDVViewController.h>
+#import <CoreMotion/CoreMotion.h>
+#import <Altimeter.h>
 
 @interface Altimeter ()
     @property (nonatomic, strong) CMAltimeter *altimeter;

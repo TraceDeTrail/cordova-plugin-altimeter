@@ -1,2 +1,25 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-altimeter" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>Altimeter</name><author>James Legue</author><description>Cordova Plugin for the Altimeter to gather altitude related data.</description><keywords>cordova, core motion, barometer, altimeter, altitude, pressure, weather, sensor</keywords><license>MIT</license><engines><engine name="cordova" version="&gt;=3.0.0" /></engines><js-module name="Altimeter" src="www/Altimeter.js"><clobbers target="cordova.plugins.Altimeter" /></js-module><platform name="ios"><config-file parent="/*" target="config.xml"><feature name="Altimeter"><param name="ios-package" value="Altimeter" /></feature></config-file><source-file src="src/ios/Altimeter.m" /></platform></plugin>
+<plugin id="cordova-plugin-altimeter" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Altimeter</name>
+    <author>James Legue</author>
+    <description>Cordova Plugin for the Altimeter to gather altitude related data.</description>
+    <keywords>cordova, core motion, barometer, altimeter, altitude, pressure, weather, sensor</keywords>
+    <license>MIT</license>
+    <engines>
+        <engine name="cordova" version="&gt;=3.0.0" />
+    </engines>
+    <js-module name="Altimeter" src="www/Altimeter.js">
+        <clobbers target="cordova.plugins.Altimeter" />
+    </js-module>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="Altimeter">
+                <param name="ios-package" value="Altimeter" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/Altimeter.h" />
+        <source-file src="src/ios/Altimeter.m" />
+        <framework src="CoreMotion.framework" />
+    </platform>
+</plugin>
