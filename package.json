@@ -13,6 +13,8 @@
     "url": "git+https://github.com/jameslegue/cordova-plugin-altimeter.git"
   },
   "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
     "cordova",
     "core motion",
     "barometer",
