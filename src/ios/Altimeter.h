@@ -10,6 +10,4 @@
 - (void) startAltimeterUpdates:(CDVInvokedUrlCommand*)command;
 - (void) stopAltimeterUpdates:(CDVInvokedUrlCommand*)command;
 
-//- (void) queryData:(CDVInvokedUrlCommand*)command;
-
 @end

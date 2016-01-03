@@ -18,8 +18,4 @@ Altimeter.prototype.stopAltimeterUpdates = function (onSuccess, onError) {
     exec(onSuccess, onError, "Altimeter", "stopAltimeterUpdates", []);
 };
 
-Altimeter.prototype.queryAltimeterData = function (onSuccess, onError, options) {
-    exec(onSuccess, onError, "Altimeter", "queryAltimeterData", [options]);
-};
-
 module.exports = new Altimeter();
