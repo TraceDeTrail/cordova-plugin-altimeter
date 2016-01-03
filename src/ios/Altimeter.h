@@ -7,9 +7,10 @@
 
 - (void) isRelativeAltitudeAvailable:(CDVInvokedUrlCommand*)command;
 
+/*
 - (void) startRelativeAltitudeUpdates:(CDVInvokedUrlCommand*)command;
 - (void) stopRelativeAltitudeUpdates:(CDVInvokedUrlCommand*)command;
 
 - (void) queryData:(CDVInvokedUrlCommand*)command;
-
+*/
 @end
