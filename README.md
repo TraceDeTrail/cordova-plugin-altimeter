@@ -1,5 +1,5 @@
 # cordova-plugin-altimeter
-Cordova Plugin for the Altimeter to gather altitude and barometric pressure related data. [![npm version](https://badge.fury.io/js/cordova-plugin-altimeter.svg)](http://badge.fury.io/js/cordova-plugin-altimeter)
+Cordova Plugin for the Altimeter to gather altitude and barometric pressure related data. [![npm version](https://badge.fury.io/js/cordova-plugin-altimeter.svg)](http://badge.fury.io/js/cordova-plugin-altimeter) [![bitHound Overall Score](https://www.bithound.io/github/jameslegue/cordova-plugin-altimeter/badges/score.svg)](https://www.bithound.io/github/jameslegue/cordova-plugin-altimeter)
 
 
 ## Altimeter Plugin for Cordova
