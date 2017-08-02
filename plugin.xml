@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="cordova-plugin-altimeter" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Altimeter</name>
-    <author>James Legue</author>
+    <author>Trace de Trail</author>
     <description>Cordova Plugin for the Altimeter to gather altitude related data.</description>
     <keywords>cordova, core motion, barometer, altimeter, altitude, pressure, weather, sensor</keywords>
     <license>MIT</license>
