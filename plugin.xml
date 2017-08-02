@@ -14,12 +14,20 @@
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
             <feature name="Altimeter">
-                <param name="ios-package" value="Altimeter" />
+                <param name="ios-package" value="com.tracedetrail.cordova.AltimeterPlugin" />
                 <param name="onload" value="true" />
             </feature>
         </config-file>
         <header-file src="src/ios/Altimeter.h" />
         <source-file src="src/ios/Altimeter.m" />
         <framework src="CoreMotion.framework" />
+    </platform>
+    <platform name="android">
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="Altimeter" >
+          <param name="android-package" value="com.tracedetrail.cordova.AltimeterPlugin"/>
+        </feature>
+      </config-file>
+      <source-file src="src/android/Altimeter.java" target-dir="src/com/tracedetrail/cordova/altimeter"/>
     </platform>
 </plugin>

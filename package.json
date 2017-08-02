@@ -1,11 +1,12 @@
 {
   "name": "cordova-plugin-altimeter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Cordova Plugin for the Altimeter to gather altitude related data.",
   "cordova": {
     "id": "cordova-plugin-altimeter",
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   },
   "repository": {
