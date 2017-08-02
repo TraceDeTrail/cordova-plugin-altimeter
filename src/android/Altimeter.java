@@ -30,14 +30,9 @@ import android.os.Looper;
  */
 public class Altimeter extends CordovaPlugin implements SensorEventListener {
 
-    public static int STOPPED = 0;
-    public static int STARTING = 1;
-    public static int RUNNING = 2;
-    public static int ERROR_FAILED_TO_START = 3;
-
     private float pressure;  // most recent pressure value
-    private long timestamp;  // time of most recent value
-    private int status;  // status of listener
+    private float relativeAltitude;  // most recent pressure value
+    private float firstAltitude;
     private int accuracy = SensorManager.SENSOR_STATUS_UNRELIABLE;
 
     private SensorManager sensorManager;  // Sensor manager
@@ -45,20 +40,13 @@ public class Altimeter extends CordovaPlugin implements SensorEventListener {
 
     private CallbackContext callbackContext;  // Keeps track of the JS callback context.
 
-    private Handler mainHandler=null;
-    private Runnable mainRunnable = new Runnable() {
-        public void run() {
-            Altimeter.this.timeout();
-        }
-    };
-
     /**
      * Create an barometer listener.
      */
     public Altimeter() {
         this.pressure = 0;
-        this.timestamp = 0;
-        this.setStatus(Altimeter.STOPPED);
+        this.relativeAltitude = 0;
+        this.firstAltitude = 100000;
      }
 
     /**
@@ -89,11 +77,21 @@ public class Altimeter extends CordovaPlugin implements SensorEventListener {
             PluginResult result = new PluginResult(PluginResult.Status.OK, true);
             result.setKeepCallback(true);
             callbackContext.sendPluginResult(result);
-          } else {
-            PluginResult err = new PluginResult(PluginResult.Status.ERROR, false);
-            err.setKeepCallback(true);
-            callbackContext.sendPluginResult(err);
           }
+          else {
+            PluginResult result = new PluginResult(PluginResult.Status.OK, false);
+            result.setKeepCallback(true);
+            callbackContext.sendPluginResult(result);
+          }
+        }
+        else if(action.equals("stopAltimeterUpdates"){
+            this.stop();
+            PluginResult result = new PluginResult(PluginResult.Status.OK, "");
+            result.setKeepCallback(true);
+            callbackContext.sendPluginResult(result);
+        }
+        else if(action.equals("startAltimeterUpdates")){
+            this.start();
         }
         return true;
     }
@@ -105,7 +103,7 @@ public class Altimeter extends CordovaPlugin implements SensorEventListener {
     public void onDestroy() {
         this.stop();
     }
-  
+
     //--------------------------------------------------------------------------
     // LOCAL METHODS
     //--------------------------------------------------------------------------
@@ -113,64 +111,24 @@ public class Altimeter extends CordovaPlugin implements SensorEventListener {
     /**
      * Start listening for pressure sensor.
      *
-     * @return          status of listener
     */
-    private int start() {
-        // If already starting or running, then just return
-        if ((this.status == Altimeter.RUNNING) || (this.status == Altimeter.STARTING)) {
-            return this.status;
-        }
+    private void start() {
 
-        this.setStatus(Altimeter.STARTING);
-
-        // Get barometer from sensor manager
         List<Sensor> list = this.sensorManager.getSensorList(Sensor.TYPE_PRESSURE);
+        this.mSensor = list.get(0);
+        this.sensorManager.registerListener(this, this.mSensor, SensorManager.SENSOR_DELAY_UI);
 
-        // If found, then register as listener
-        if ((list != null) && (list.size() > 0)) {
-          this.mSensor = list.get(0);
-          this.sensorManager.registerListener(this, this.mSensor, SensorManager.SENSOR_DELAY_UI);
-          this.setStatus(Altimeter.STARTING);
-        } else {
-          this.setStatus(Altimeter.ERROR_FAILED_TO_START);
-          this.fail(Altimeter.ERROR_FAILED_TO_START, "No sensors found to register barometer listening to.");
-          return this.status;
-        }
-
-        // Set a timeout callback on the main thread.
-        stopTimeout();
-        mainHandler = new Handler(Looper.getMainLooper());
-        mainHandler.postDelayed(mainRunnable, 2000);
-
-        return this.status;
     }
-    private void stopTimeout() {
-        if(mainHandler!=null){
-            mainHandler.removeCallbacks(mainRunnable);
-        }
-    }
+
     /**
      * Stop listening to barometer sensor.
      */
     private void stop() {
-        stopTimeout();
-        if (this.status != Altimeter.STOPPED) {
-            this.sensorManager.unregisterListener(this);
-        }
-        this.setStatus(Altimeter.STOPPED);
+        this.sensorManager.unregisterListener(this);
         this.accuracy = SensorManager.SENSOR_STATUS_UNRELIABLE;
-    }
-
-    /**
-     * Returns an error if the sensor hasn't started.
-     *
-     * Called two seconds after starting the listener.
-     */
-    private void timeout() {
-        if (this.status == Altimeter.STARTING) {
-            this.setStatus(Altimeter.ERROR_FAILED_TO_START);
-            this.fail(Altimeter.ERROR_FAILED_TO_START, "Barometer could not be started.");
-        }
+        this.pressure = 0;
+        this.relativeAltitude = 0;
+        this.firstAltitude = 100000;
     }
 
     /**
@@ -185,10 +143,6 @@ public class Altimeter extends CordovaPlugin implements SensorEventListener {
             return;
         }
 
-        // If not running, then just return
-        if (this.status == Altimeter.STOPPED) {
-            return;
-        }
         this.accuracy = accuracy;
     }
 
@@ -203,18 +157,17 @@ public class Altimeter extends CordovaPlugin implements SensorEventListener {
             return;
         }
 
-        // If not running, then just return
-        if (this.status == Altimeter.STOPPED) {
-            return;
-        }
-        this.setStatus(Altimeter.RUNNING);
-
         if (this.accuracy >= SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM) {
 
             // Save time that event was received
-            this.timestamp = System.currentTimeMillis();
             this.pressure = event.values[0];
-
+            if(this.firstAltitude == 100000){
+              this.firstAltitude=this.sensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, this.pressure);
+              this.relativeAltitude=0;
+            }
+            else{
+              this.relativeAltitude = this.sensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, this.pressure) - this.firstAltitude;
+            }
             this.win();
         }
     }
@@ -224,9 +177,7 @@ public class Altimeter extends CordovaPlugin implements SensorEventListener {
      */
     @Override
     public void onReset() {
-        if (this.status == Altimeter.RUNNING) {
-            this.stop();
-        }
+        this.stop();
     }
 
     // Sends an error back to JS
@@ -251,14 +202,12 @@ public class Altimeter extends CordovaPlugin implements SensorEventListener {
         callbackContext.sendPluginResult(result);
     }
 
-    private void setStatus(int status) {
-        this.status = status;
-    }
+
     private JSONObject getPressureJSON() {
         JSONObject r = new JSONObject();
         try {
-            r.put("val", this.pressure);
-            r.put("timestamp", this.timestamp);
+            r.put("pressure", this.pressure);
+            r.put("relativeAltitude", this.relativeAltitude);
         } catch (JSONException e) {
             e.printStackTrace();
         }
