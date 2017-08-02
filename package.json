@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jameslegue/cordova-plugin-altimeter.git"
+    "url": "git+https://github.com/TraceDeTrail/cordova-plugin-altimeter.git"
   },
   "keywords": [
     "ecosystem:cordova",
@@ -31,10 +31,10 @@
       "version": ">=3.0.0"
     }
   ],
-  "author": "James Legue",
+  "author": "Trace de Trail",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jameslegue/cordova-plugin-altimeter/issues"
+    "url": "https://github.com/TraceDeTrail/cordova-plugin-altimeter/issues"
   },
-  "homepage": "https://github.com/jameslegue/cordova-plugin-altimeter#readme"
+  "homepage": "https://github.com/TraceDeTrail/cordova-plugin-altimeter#readme"
 }
