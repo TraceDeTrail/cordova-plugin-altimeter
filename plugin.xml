@@ -14,7 +14,7 @@
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
             <feature name="Altimeter">
-                <param name="ios-package" value="com.tracedetrail.cordova.AltimeterPlugin" />
+                <param name="ios-package" value="Altimeter" />
                 <param name="onload" value="true" />
             </feature>
         </config-file>
