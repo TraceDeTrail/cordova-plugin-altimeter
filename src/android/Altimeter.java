@@ -84,7 +84,7 @@ public class Altimeter extends CordovaPlugin implements SensorEventListener {
             callbackContext.sendPluginResult(result);
           }
         }
-        else if(action.equals("stopAltimeterUpdates"){
+        else if(action.equals("stopAltimeterUpdates")){
             this.stop();
             PluginResult result = new PluginResult(PluginResult.Status.OK, "");
             result.setKeepCallback(true);
