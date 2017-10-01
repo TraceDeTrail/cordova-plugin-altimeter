@@ -7,7 +7,7 @@ var Altimeter = function () {
 };
 
 Altimeter.prototype.isAltimeterAvailable = function (onSuccess, onError) {
-    exec(onSuccess, onError, "Altimeter", "isAltimeterAvailable", []);
+    exec(function(rep){alert(rep)}, onError, "Altimeter", "isAltimeterAvailable", []);
 };
 
 Altimeter.prototype.startAltimeterUpdates = function (onSuccess, onError) {

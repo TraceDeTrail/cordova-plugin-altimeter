@@ -39,9 +39,11 @@ public class Altimeter extends CordovaPlugin {
      * @return              Whether the action was valid.
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
-            PluginResult result = new PluginResult(PluginResult.Status.OK, true);
-            result.setKeepCallback(true);
-            callbackContext.sendPluginResult(result);
+            String responseText = "Hello world";
+            callbackContext.success(responseText);
+          //  PluginResult result = new PluginResult(PluginResult.Status.OK, 'test');
+          //  result.setKeepCallback(true);
+            //callbackContext.sendPluginResult(result);
         return true;
     }
 
