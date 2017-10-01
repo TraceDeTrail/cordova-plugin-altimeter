@@ -26,7 +26,6 @@
       <config-file target="res/xml/config.xml" parent="/*">
         <feature name="Altimeter" >
           <param name="android-package" value="com.tracedetrail.cordova.Altimeter"/>
-          <param name="onload" value="true" />
         </feature>
       </config-file>
       <source-file src="src/android/Altimeter.java" target-dir="src/com/tracedetrail/cordova/altimeter"/>
