@@ -28,7 +28,7 @@ import android.os.Looper;
  * This class listens to the barometer sensor and stores the latest
  * pressure value.
  */
-public class Altimeter extends CordovaPlugin implements SensorEventListener {
+public class Altimeter extends CordovaPlugin {
 
     /**
      * Executes the request.
