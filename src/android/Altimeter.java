@@ -74,16 +74,15 @@ public class Altimeter extends CordovaPlugin implements SensorEventListener {
         if(action.equals("isAltimeterAvailable")){
           // List<Sensor> list = this.sensorManager.getSensorList(Sensor.TYPE_PRESSURE);
           // if ((list != null) && (list.size() > 0)) {
-          //   PluginResult result = new PluginResult(PluginResult.Status.OK, true);
-          //   result.setKeepCallback(true);
-          //   callbackContext.sendPluginResult(result);
+             PluginResult result = new PluginResult(PluginResult.Status.OK, true);
+             result.setKeepCallback(true);
+             callbackContext.sendPluginResult(result);
           // }
           // else {
           //   PluginResult result = new PluginResult(PluginResult.Status.OK, false);
           //   result.setKeepCallback(true);
           //   callbackContext.sendPluginResult(result);
           // }
-          callbackContext.success();
           return true;
         }
         else if(action.equals("stopAltimeterUpdates")){
