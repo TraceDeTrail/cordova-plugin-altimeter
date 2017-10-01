@@ -6,7 +6,12 @@ var Altimeter = function () {
 };
 
 Altimeter.prototype.isAltimeterAvailable = function (onSuccess, onError) {
-    cordova.exec(function(rep){alert('test');}, onError, "Altimeter", "isAltimeterAvailable", []);
+    cordova.exec(
+      function(rep){
+        alert('test');
+      }, function(){
+        alert('erreur');
+      }, "Altimeter", "isAltimeterAvailable", []);
 };
 
 Altimeter.prototype.startAltimeterUpdates = function (onSuccess, onError) {
