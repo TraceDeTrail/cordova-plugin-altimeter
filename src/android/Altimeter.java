@@ -45,13 +45,7 @@ public class Altimeter extends CordovaPlugin {
         return true;
     }
 
-    /**
-     * Called by BarometerBroker when listener is to be shut down.
-     * Stop listener.
-     */
-    public void onDestroy() {
-        this.stop();
-    }
+
 
 
 }
