@@ -6,20 +6,15 @@ var Altimeter = function () {
 };
 
 Altimeter.prototype.isAltimeterAvailable = function (onSuccess, onError) {
-    cordova.exec(
-      function(rep){
-        alert('test');
-      }, function(){
-        alert('erreur');
-      }, "altimeter", "isAltimeterAvailable", []);
+  cordova.exec(onSuccess, onError, "altimeter", "isAltimeterAvailable", []);
 };
 
 Altimeter.prototype.startAltimeterUpdates = function (onSuccess, onError) {
-    cordova.exec(onSuccess, onError, "Altimeter", "startAltimeterUpdates", []);
+    cordova.exec(onSuccess, onError, "altimeter", "startAltimeterUpdates", []);
 };
 
 Altimeter.prototype.stopAltimeterUpdates = function (onSuccess, onError) {
-    cordova.exec(onSuccess, onError, "Altimeter", "stopAltimeterUpdates", []);
+    cordova.exec(onSuccess, onError, "altimeter", "stopAltimeterUpdates", []);
 };
 
 module.exports = new Altimeter();
