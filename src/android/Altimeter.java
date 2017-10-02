@@ -30,14 +30,7 @@ import android.os.Looper;
  */
 public class Altimeter extends CordovaPlugin {
 
-    /**
-     * Executes the request.
-     *
-     * @param action        The action to execute.
-     * @param args          The exec() arguments.
-     * @param callbackId    The callback id used when calling back into JavaScript.
-     * @return              Whether the action was valid.
-     */
+  @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
             callbackContext.success("gagne");
         return true;
