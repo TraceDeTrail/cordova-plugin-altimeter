@@ -11,7 +11,7 @@ Altimeter.prototype.isAltimeterAvailable = function (onSuccess, onError) {
         alert('test');
       }, function(){
         alert('erreur');
-      }, "Altimeter", "isAltimeterAvailable", []);
+      }, "altimeter", "isAltimeterAvailable", []);
 };
 
 Altimeter.prototype.startAltimeterUpdates = function (onSuccess, onError) {
