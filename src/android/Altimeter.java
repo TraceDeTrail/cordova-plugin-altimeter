@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-package com.tracedetrail.cordova.altimeter;
+package com.tracedetrail;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ import android.os.Looper;
  * This class listens to the barometer sensor and stores the latest
  * pressure value.
  */
-public class Altimeter extends CordovaPlugin {
+public class altimeter extends CordovaPlugin {
 
   @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {

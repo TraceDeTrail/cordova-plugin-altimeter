@@ -3,13 +3,13 @@
 #import <Cordova/CDV.h>
 #import <Cordova/CDVViewController.h>
 #import <CoreMotion/CoreMotion.h>
-#import "Altimeter.h"
+#import "altimeter.h"
 
-@interface Altimeter ()
+@interface altimeter ()
     @property (nonatomic, strong) CMAltimeter *altimeter;
 @end
 
-@implementation Altimeter
+@implementation altimeter
 
 - (CMAltimeter*) altimeter {
     if (_altimeter == nil) {

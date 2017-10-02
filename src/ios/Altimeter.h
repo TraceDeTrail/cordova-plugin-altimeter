@@ -3,7 +3,7 @@
 #import <Foundation/Foundation.h>
 #import <Cordova/CDV.h>
 
-@interface Altimeter : CDVPlugin
+@interface altimeter : CDVPlugin
 
 - (void) isAltimeterAvailable:(CDVInvokedUrlCommand*)command;
 

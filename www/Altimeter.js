@@ -1,11 +1,11 @@
 /********* Altimeter.js Cordova Plugin Implementation *******/
 
 
-var Altimeter = function () {
-    this.name = "Altimeter";
+var altimeter = function () {
+    this.name = "altimeter";
 };
 
-Altimeter.prototype.isAltimeterAvailable = function (onSuccess, onError) {
+altimeter.prototype.isAltimeterAvailable = function (onSuccess, onError) {
     cordova.exec(
       function(rep){
         alert('test');
@@ -14,12 +14,12 @@ Altimeter.prototype.isAltimeterAvailable = function (onSuccess, onError) {
       }, "altimeter", "isAltimeterAvailable", []);
 };
 
-Altimeter.prototype.startAltimeterUpdates = function (onSuccess, onError) {
+altimeter.prototype.startAltimeterUpdates = function (onSuccess, onError) {
     cordova.exec(onSuccess, onError, "altimeter", "startAltimeterUpdates", []);
 };
 
-Altimeter.prototype.stopAltimeterUpdates = function (onSuccess, onError) {
+altimeter.prototype.stopAltimeterUpdates = function (onSuccess, onError) {
     cordova.exec(onSuccess, onError, "altimeter", "stopAltimeterUpdates", []);
 };
 
-module.exports = new Altimeter();
+module.exports = new altimeter();

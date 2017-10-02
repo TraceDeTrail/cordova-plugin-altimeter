@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-altimeter" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>Altimeter</name>
+<plugin id="com.tracedetrail.altimeter" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>altimeter</name>
     <author>Trace de Trail</author>
     <description>Cordova Plugin for the Altimeter to gather altitude related data.</description>
     <keywords>cordova, core motion, barometer, altimeter, altitude, pressure, weather, sensor</keywords>
@@ -8,26 +8,26 @@
     <engines>
         <engine name="cordova" version="&gt;=3.0.0" />
     </engines>
-    <js-module name="Altimeter" src="www/Altimeter.js">
+    <js-module name="altimeter" src="www/altimeter.js">
         <clobbers target="altimeter" />
     </js-module>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
-            <feature name="Altimeter">
-                <param name="ios-package" value="Altimeter" />
+            <feature name="altimeter">
+                <param name="ios-package" value="altimeter" />
                 <param name="onload" value="true" />
             </feature>
         </config-file>
-        <header-file src="src/ios/Altimeter.h" />
-        <source-file src="src/ios/Altimeter.m" />
+        <header-file src="src/ios/altimeter.h" />
+        <source-file src="src/ios/altimeter.m" />
         <framework src="CoreMotion.framework" />
     </platform>
     <platform name="android">
       <config-file target="res/xml/config.xml" parent="/*">
-        <feature name="Altimeter" >
-          <param name="android-package" value="com.tracedetrail.cordova.altimeter"/>
+        <feature name="altimeter" >
+          <param name="android-package" value="com.tracedetrail.altimeter"/>
         </feature>
       </config-file>
-      <source-file src="src/android/Altimeter.java" target-dir="src/com/tracedetrail/cordova/altimeter"/>
+      <source-file src="src/android/Altimeter.java" target-dir="src/com/tracedetrail/"/>
     </platform>
 </plugin>
