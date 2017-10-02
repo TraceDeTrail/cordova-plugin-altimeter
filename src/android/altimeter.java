@@ -1,0 +1,42 @@
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+package com.tracedetrail;
+
+import java.util.List;
+
+import org.apache.cordova.CordovaWebView;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+
+import android.os.Handler;
+import android.os.Looper;
+
+/**
+ * This class listens to the barometer sensor and stores the latest
+ * pressure value.
+ */
+public class altimeter extends CordovaPlugin {
+
+  @Override
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
+            callbackContext.success("gagne");
+        return true;
+    }
+
+
+
+
+}
